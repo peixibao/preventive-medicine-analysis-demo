@@ -1,0 +1,56 @@
+
+name: R workflow CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: 'release'
+          use-public-rspm: true
+
+      - name: Install required R packages
+        run: |
+          Rscript -e 'install.packages(c("MASS", "dplyr", "readr", "tibble", "sandwich", "ggplot2"), repos = "https://cloud.r-project.org")'
+
+      - name: Run complete R workflow
+        run: Rscript -e 'source("run_all.R")'
+
+      - name: Verify generated outputs
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          for file in \
+            data/synthetic_preventive_health.csv \
+            data/data_dictionary.csv \
+            output/tables/table1_baseline.csv \
+            output/tables/modified_poisson_models.csv \
+            output/tables/joint_exposure_results.csv \
+            output/tables/sensitivity_outcome_thresholds.csv \
+            output/figures/fig1_joint_prevalence.png \
+            output/figures/fig4_marker_count.pdf \
+            output/session_info.txt
+          do
+            test -s "$file" || {
+              echo "Missing or empty file: $file"
+              exit 1
+            }
+          done
+
+          Rscript -e 'x <- readr::read_csv("data/synthetic_preventive_health.csv", show_col_types = FALSE); stopifnot(nrow(x) == 800L, ncol(x) == 21L, !anyDuplicated(x$id))'
