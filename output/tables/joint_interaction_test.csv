@@ -1,0 +1,2 @@
+model,term,PR,CI_low,CI_high,p_value,n,events,sitting_cutoff_hours,breaks_cutoff_per_hour,interpretation
+Dichotomized interaction,sitting_high:breaks_low,0.4656969550801279,0.22851675007998512,0.9490492661697352,0.035384262204113705,717,135,8,3,Multiplicative prevalence-ratio interaction; exploratory

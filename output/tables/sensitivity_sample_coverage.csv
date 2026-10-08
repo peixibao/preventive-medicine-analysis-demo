@@ -1,0 +1,4 @@
+analysis_sample,n,events,event_prevalence
+Full synthetic sample,800,148,0.185
+Main-model complete cases,717,135,0.18828451882845187
+Excluded by missing covariates,83,13,0.1566265060240964

@@ -1,0 +1,22 @@
+variable,description,unit
+id,Synthetic participant identifier,
+age,Age,years
+sex,Sex,
+bmi,Body mass index,kg/m^2
+sleep_hours,Mean sleep duration,hours/day
+mvpa_min_week,Moderate-to-vigorous physical activity,minutes/week
+sitting_hours,Mean sitting duration,hours/day
+breaks_per_hour,Sitting interruptions,breaks/hour
+diet_quality_score,Simulated diet-quality indicator,0-100
+current_smoker,Current smoking status,Yes/No
+fasting_glucose,Fasting plasma glucose,mg/dL
+hba1c,Glycated hemoglobin,%
+triglycerides,Triglyceride concentration,mg/dL
+hdl,HDL cholesterol,mg/dL
+sbp,Systolic blood pressure,mmHg
+elevated_glycemia,Glycemic marker at/above illustrative threshold,0/1
+elevated_sbp,Systolic BP marker at/above illustrative threshold,0/1
+high_triglycerides,Triglyceride marker at/above illustrative threshold,0/1
+low_hdl,HDL marker below sex-specific illustrative threshold,0/1
+risk_marker_count,Sum of four binary adverse markers,0-4
+multiple_risk_markers,Two or more adverse markers,0/1

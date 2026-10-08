@@ -1,6 +1,17 @@
+# RStudio / R session artifacts
 .Rhistory
 .RData
+.Ruserdata
 .Rproj.user/
-.DS_Store
-.env
 .Renviron
+
+# macOS
+.DS_Store
+
+# Environment and secrets
+.env
+.env.*
+
+# OS/editor temporary files
+*~
+*.swp

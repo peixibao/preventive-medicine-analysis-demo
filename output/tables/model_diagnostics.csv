@@ -1,0 +1,5 @@
+model,n,events,max_fitted_prevalence,n_fitted_over_one
+M0_unadjusted,800,148,0.7839940150554395,0
+M1_demographics,800,148,1.1775661235121127,7
+M2_lifestyle,717,135,1.7241193562052017,7
+M3_plus_BMI,717,135,2.7885581663587637,16

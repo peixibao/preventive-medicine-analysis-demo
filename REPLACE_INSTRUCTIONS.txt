@@ -1,0 +1,18 @@
+ONE COMPLETE REPLACEMENT -- preventive-medicine-analysis-demo
+
+1) BACK UP your existing repo folder once (Finder > Duplicate) before replacing files.
+2) Open this unzipped folder. Select ALL its files and subfolders, copy them into
+   your existing preventive-medicine-analysis-demo/ repo folder, and choose REPLACE
+   when macOS asks. All scripts, INCLUDING 01_generate_synthetic_data.R, are provided.
+   Do NOT delete the existing repo or its hidden .git directory.
+3) Open the .Rproj file in the repo, then run once in RStudio:
+      source("run_all.R")
+4) If R lists missing packages, install once using:
+      install.packages(c("MASS", "dplyr", "readr", "tibble", "sandwich", "ggplot2"))
+   Then run source("run_all.R") again.
+
+This ZIP is intended to overlay an existing repo, not replace its .git history.
+It does not require you to inspect or preserve a separate old 01 script.
+The old scripts have been integrated into a self-contained workflow.
+
+Do not commit or push until Source succeeds and outputs are inspected.
