@@ -26,4 +26,10 @@ Install missing packages once: `install.packages(c("MASS", "dplyr", "readr", "ti
 
 Open the project in RStudio, then `source("run_all.R")`. The script sets the working directory to its own location for the duration of the run, checks dependencies, executes all scripts, and saves data, tables, figures and `output/session_info.txt`. It aborts on an error instead of printing a false success message.
 
-**Keep your existing `scripts/01_generate_synthetic_data.R`.** The supplement intentionally does not overwrite it.
+The repository includes the complete synthetic-data generator (`scripts/01_generate_synthetic_data.R`) and all downstream scripts; no supplementary files or earlier versions are required.
+
+## Model diagnostics and interpretability
+
+The tracked run reports fitted Poisson means above one in several adjusted models (M1: 7; M2: 7; M3: 16; see `output/tables/model_diagnostics.csv`). Modified Poisson coefficients with robust variance are used to estimate prevalence ratios; fitted means outside [0, 1] should not be interpreted as individual probabilities. Standardized predictions in the joint-exposure exercise should likewise be treated as simulation-specific model-based summaries rather than validated patient risks. Reconsider the model family or specification if calibrated absolute probabilities are needed.
+
+The primary adjusted complete-case analysis contains 717 of 800 synthetic participants; 83 observations are excluded owing to missing covariates. The generator deliberately introduces exposure–biomarker associations and selected missingness, so apparent associations and significance reflect these programmed assumptions.
